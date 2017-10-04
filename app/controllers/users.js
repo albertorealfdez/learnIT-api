@@ -1,18 +1,10 @@
-exports.getAll = function(req, res) {
-  var db = req.db;
-  
-  db.collection('users').find().toArray(function(err, users) {
-    if (err) {
-      res.send({error: 'An error occurred getting'});
-    } else {
-      console.log(users);
-      res.json(users);
-    }
-  });
+var controller = {
+  create: create,
+  getAll: getAll
 };
 
-exports.create = function(req, res) {
-  var user = { name: req.body.name, email: req.body.email };
+function create(req, res) {
+  var user = { name: req.body.name, email: req.body.email, password: req.body.password };
   var db = req.db;
 
   db.collection('users').insert(user, (err, result) => {
@@ -22,4 +14,33 @@ exports.create = function(req, res) {
       res.send(result.ops[0]);
     }
   });
-};
+}
+
+function getAll(req, res) {
+  var db = req.db;
+  if (req.query.email) {
+    return getByEmail(req, res);
+  }  
+  db.collection('users').find().toArray((err, users) => {
+    if (err) {
+      res.send({error: 'An error occurred getting'});
+    } else {
+      res.json(users);
+    }
+  });
+}
+
+function getByEmail(req, res) {
+  var db = req.db;
+  var details = { email: req.query.email };
+  console.log('HERE:', details);
+  db.collection('users').findOne(details, (err, user) => {
+    if (err) {
+      res.send({error: 'An error occurred getting'});
+    } else {
+      res.json(user);
+    }
+  });
+}
+
+module.exports = controller;
