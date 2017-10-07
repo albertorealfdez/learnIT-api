@@ -17,10 +17,19 @@ MongoClient.connect(dbUrl, (err, database) => {
   if (err) {
     return console.log(err);
   }
+  // Database setting middleware
   app.use(function(req, res, next) {
     req.db = database;
     next();
   });
+
+  // Http access middleware
+  app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+
+    next();
+  });
+
   var routes = require('./app/routes');
   
   app.use('/', routes);

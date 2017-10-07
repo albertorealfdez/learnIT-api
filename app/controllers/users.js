@@ -33,7 +33,6 @@ function getAll(req, res) {
 function getByEmail(req, res) {
   var db = req.db;
   var details = { email: req.query.email };
-  console.log('HERE:', details);
   db.collection('users').findOne(details, (err, user) => {
     if (err) {
       res.send({error: 'An error occurred getting'});
