@@ -11,6 +11,8 @@ var MongoClient = require('mongodb').MongoClient;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+var headers = require('./middlewares/headers');
+app.use(headers);
 
 MongoClient.connect(dbUrl, (err, database) => {
   if (err) {
@@ -19,13 +21,6 @@ MongoClient.connect(dbUrl, (err, database) => {
   // Database setting middleware
   app.use(function(req, res, next) {
     req.db = database;
-    next();
-  });
-
-  // Http access middleware
-  app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
-
     next();
   });
 
