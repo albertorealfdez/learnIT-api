@@ -3,7 +3,6 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
-var User = require('./app/models/user');
 var port = process.env.PORT || 3000;
 var dbUrl = process.env.DB_URL;
 
