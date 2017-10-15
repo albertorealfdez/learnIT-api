@@ -49,24 +49,8 @@ function get(req, res) {
   });
 }
 
-function getByEmail(req, res) {
-  var db = req.db;
-  var details = { email: req.query.email };
-  
-  db.collection('courses').findOne(details, (err, course) => {
-    if (err) {
-      res.send({error: 'An error occurred getting'});
-    } else {
-      res.json(course);
-    }
-  });
-}
-
 function getAll(req, res) {
   var db = req.db;
-  if (req.query.email) {
-    return getByEmail(req, res);
-  }
 
   db.collection('courses').find({}).toArray((err, courses) => {
     if (err) {

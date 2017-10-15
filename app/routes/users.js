@@ -11,4 +11,7 @@ router.route('/users/:id')
   .put(users.update)
   .delete(users.remove);
 
+router.route('/users/:id/courses')
+  .get(users.getUserCourses)
+
 module.exports = router;

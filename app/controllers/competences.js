@@ -1,20 +1,19 @@
 var ObjectID = require('mongodb').ObjectID
-var User = require('../models/user');
+var Competence = require('../models/competence');
 
 var controller = {
   create: create,
   get: get,
   getAll: getAll,
-  getUserCourses: getUserCourses,
   remove: remove,
   update: update
 };
 
 function create(req, res) {
-  var user = new User(req.body.name, req.body.email, req.body.password);
+  var competence = new Competence(req.body.key, req.body.title, req.body.minThreshold, req.body.maxThreshold);
   var db = req.db;
 
-  db.collection('users').insert(user, (err, result) => {
+  db.collection('competences').insert(competence, (err, result) => {
     if (err) {
       res.send({error: 'An error occurred inserting'});
     } else {
@@ -24,11 +23,11 @@ function create(req, res) {
 }
 
 function update(req, res) {
-  var user = new User(req.body.name, req.body.email, req.body.password);
+  var competence = new Competence(req.body.key, req.body.title, req.body.minThreshold, req.body.maxThreshold);
   var db = req.db;
   var details = { _id: new ObjectID(req.params.id) };
 
-  db.collection('users').update(details, user, (err, result) => {
+  db.collection('competences').update(details, competence, (err, result) => {
     if (err) {
       res.send({error: 'An error occurred updating'});
     } else {
@@ -41,52 +40,39 @@ function get(req, res) {
   var db = req.db;
   var details = { _id: new ObjectID(req.params.id) };
 
-  db.collection('users').findOne(details, (err, user) => {
+  db.collection('competences').findOne(details, (err, competence) => {
     if (err) {
       res.send({error: 'An error occurred getting'});
     } else {
-      res.json(user);
+      res.json(competence);
     }
   });
 }
 
-function getByEmail(req, res) {
+function getByCourse(req, res) {
   var db = req.db;
-  var details = { email: req.query.email };
+  var details = { course_id: new ObjectID(req.query.course) };
   
-  db.collection('users').findOne(details, (err, user) => {
+  db.collection('competences').findOne(details, (err, competence) => {
     if (err) {
       res.send({error: 'An error occurred getting'});
     } else {
-      res.json(user);
+      res.json(competence);
     }
   });
 }
 
 function getAll(req, res) {
   var db = req.db;
-  if (req.query.email) {
-    return getByEmail(req, res);
+  if (req.query.course) {
+    return getByCourse(req, res);
   }
 
-  db.collection('users').find({}).toArray((err, users) => {
+  db.collection('competences').find({}).toArray((err, competences) => {
     if (err) {
       res.send({error: 'An error occurred getting'});
     } else {
-      res.json(users);
-    }
-  });
-}
-
-function getUserCourses(req, res) {
-  var db = req.db;
-  var details = { _id: new ObjectID(req.params.id) };
-
-  db.collection('users').findOne(details, (err, user) => {
-    if (err) {
-      res.send({error: 'An error occurred getting'});
-    } else {
-      res.json(user.courses);
+      res.json(competences);
     }
   });
 }
@@ -95,7 +81,7 @@ function remove(req, res) {
   var db = req.db;
   var details = { _id: new ObjectID(req.params.id) };
 
-  db.collection('users').remove(details, (err, result) => {
+  db.collection('competences').remove(details, (err, result) => {
     if (err) {
       res.send({error: 'An error occurred deleting'});
     } else {
