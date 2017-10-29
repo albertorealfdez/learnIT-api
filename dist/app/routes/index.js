@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express');
 var router = express.Router();
 var users = require('./users');
@@ -7,7 +9,7 @@ var courses = require('./courses');
 var competences = require('./competences');
 var studentCompetences = require('./studentCompetences');
 
-router.get('/', (req, res) => {
+router.get('/', function (req, res) {
   res.status(200).json({ message: 'Connected!' });
 });
 
