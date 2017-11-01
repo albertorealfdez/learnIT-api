@@ -53,6 +53,10 @@ function get(req, res) {
 function getAll(req, res) {
   var db = req.db;
 
+  if (req.query.key) {
+    return getByKey(req, res);
+  }
+
   db.collection('courses').find({}).toArray((err, courses) => {
     if (err) {
       res.send({error: 'An error occurred getting'});
@@ -61,6 +65,20 @@ function getAll(req, res) {
     }
   });
 }
+
+function getByKey(req, res) {
+  var db = req.db;
+
+  var details = { key: req.query.key };
+
+  db.collection('courses').findOne(details, (err, course) => {
+    if (err) {
+      res.send({error: 'An error occurred getting'});
+    } else {
+      res.json(course);
+    }
+  });
+} 
 
 function remove(req, res) {
   var db = req.db;

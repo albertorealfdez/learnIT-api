@@ -65,7 +65,7 @@ function getByCourse(req, res) {
 
 function getAll(req, res) {
   var db = req.db;
-  console.log(req.query)
+
   if (req.query.course) {
     return getByCourse(req, res);
   }
