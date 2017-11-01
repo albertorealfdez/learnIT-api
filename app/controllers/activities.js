@@ -52,9 +52,9 @@ function get(req, res) {
 
 function getByCourse(req, res) {
   var db = req.db;
-  var details = { course_id: new ObjectID(req.query.course) };
+  var details = { course_id: req.query.course };
   
-  db.collection('activities').findOne(details, (err, competence) => {
+  db.collection('activities').find(details).toArray((err, competence) => {
     if (err) {
       res.send({error: 'An error occurred getting'});
     } else {
@@ -65,6 +65,7 @@ function getByCourse(req, res) {
 
 function getAll(req, res) {
   var db = req.db;
+  console.log(req.query)
   if (req.query.course) {
     return getByCourse(req, res);
   }

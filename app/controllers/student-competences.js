@@ -54,7 +54,7 @@ function getByCourse(req, res) {
   var db = req.db;
   var details = { course_id: new ObjectID(req.query.course) };
   
-  db.collection('studentcompetences').findOne(details, (err, competence) => {
+  db.collection('studentcompetences').find(details).toArray((err, competence) => {
     if (err) {
       res.send({error: 'An error occurred getting'});
     } else {
