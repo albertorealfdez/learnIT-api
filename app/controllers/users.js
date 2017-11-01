@@ -1,5 +1,6 @@
+import User from '../models/user';
+
 var ObjectID = require('mongodb').ObjectID
-var User = require('../models/user');
 
 var controller = {
   create: create,

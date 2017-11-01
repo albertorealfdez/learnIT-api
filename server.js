@@ -8,7 +8,6 @@ var port = process.env.PORT || 3000;
 var dbUrl = process.env.DB_URL;
 
 var MongoClient = require('mongodb').MongoClient;
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

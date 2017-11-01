@@ -1,7 +1,7 @@
 'use strict';
 
 var ObjectID = require('mongodb').ObjectID;
-var StudentMap = require('../models/studentMap');
+var StudentMap = require('../models/student-map');
 
 var controller = {
   create: create,

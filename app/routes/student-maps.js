@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var studentMaps = require('../controllers/studentMaps');
+var studentMaps = require('../controllers/student-maps');
 
 router.route('/studentmaps')
   .get(studentMaps.getAll)

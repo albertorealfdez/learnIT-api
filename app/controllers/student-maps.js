@@ -1,5 +1,6 @@
+import StudentMap from '../models/student-map';
+
 var ObjectID = require('mongodb').ObjectID
-var StudentMap = require('../models/studentMap');
 
 var controller = {
   create: create,

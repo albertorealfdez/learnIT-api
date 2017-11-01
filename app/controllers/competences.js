@@ -1,5 +1,6 @@
+import Competence from '../models/competence';
+
 var ObjectID = require('mongodb').ObjectID
-var Competence = require('../models/competence');
 
 var controller = {
   create: create,

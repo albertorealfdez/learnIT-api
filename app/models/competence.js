@@ -1,4 +1,4 @@
-export class Competence {
+export default class Competence {
   constructor(key, title, minThreshold, maxThreshold) {
     this.key = key;
     this.title = title;

@@ -1,6 +1,6 @@
-import { Competence } from './competence';
+import Competence from './competence';
 
-export class StudentCompetence extends Competence {
+export default class StudentCompetence extends Competence {
   constructor(key, title, minThreshold, maxThreshold, force, completed, locked) {
     super(key, title, minThreshold, maxThreshold);
     this.force = force;

@@ -1,5 +1,6 @@
+import StudentCompetence from '../models/student-competence';
+
 var ObjectID = require('mongodb').ObjectID
-var StudentCompetence = require('../models/studentCompetence');
 
 var controller = {
   create: create,
@@ -10,7 +11,7 @@ var controller = {
 };
 
 function create(req, res) {
-  var competence = new StudentCompetence(req.body.key, req.body.title, req.body.minThreshold, req.body.maxThreshold);
+  var competence = new StudentCompetence(req.body.key, req.body.title, req.body.minThreshold, req.body.maxThreshold, req.body.force, req.body.completed, req.body.locked);
   var db = req.db;
 
   db.collection('studentcompetences').insert(competence, (err, result) => {
@@ -23,7 +24,7 @@ function create(req, res) {
 }
 
 function update(req, res) {
-  var competence = new StudentCompetence(req.body.key, req.body.title, req.body.minThreshold, req.body.maxThreshold);
+  var competence = new StudentCompetence(req.body.key, req.body.title, req.body.minThreshold, req.body.maxThreshold, req.body.force, req.body.completed, req.body.locked);
   var db = req.db;
   var details = { _id: new ObjectID(req.params.id) };
 

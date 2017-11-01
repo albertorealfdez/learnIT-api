@@ -1,5 +1,6 @@
+import Course from '../models/course';
+
 var ObjectID = require('mongodb').ObjectID
-var Course = require('../models/course');
 
 var controller = {
   create: create,
