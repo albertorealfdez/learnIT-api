@@ -1,8 +1,0 @@
-[
-  { "key": "C1", "title": "Presente simple", "minThreshold": "20", "maxThreshold": "50", "force": "17", "completed": "false", "locked": "false", "course_id": "59e39fb74565c9d36cfc7d8e" },
-  { "key": "C2", "title": "Presente continuo", "minThreshold": "21", "maxThreshold": "55", "force": "0", "completed": "false", "locked": "true", "course_id": "59e39fb74565c9d36cfc7d8e" },
-  { "key": "C3", "title": "Pasado simple", "minThreshold": "24", "maxThreshold": "60", "force": "0", "completed": "false", "locked": "true", "course_id": "59e39fb74565c9d36cfc7d8e" },
-  { "key": "C4", "title": "Preposiciones", "minThreshold": "19", "maxThreshold": "51", "force": "0", "completed": "false", "locked": "true", "course_id": "59e39fb74565c9d36cfc7d8e" },
-  { "key": "C5", "title": "Preguntas (I)", "minThreshold": "20", "maxThreshold": "50", "force": "0", "completed": "false", "locked": "true", "course_id": "59e39fb74565c9d36cfc7d8e" },
-  { "key": "C1", "title": "Álgebra de Boole (I)", "minThreshold": "20", "maxThreshold": "50", "force": "19", "completed": "false", "locked": "false", "course_id": "59e39fb74565c9d36cfc7d8d" }
-] 

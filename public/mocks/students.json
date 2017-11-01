@@ -1,8 +1,8 @@
 [
   { 
     "name": "Alberto", "email": "arf34@alu.ua.es", "password": "1234", 
-    "courses": [ "59e39fb74565c9d36cfc7d8e", "59e39fb74565c9d36cfc7d8e" ],
-    "activities": [ "59fa04f100255c54e3d39412", "59fa04f100255c54e3d39413", "59fa04f100255c54e3d39414" ],
+    "courses": [ "59e39fb74565c9d36cfc7d8d", "59e39fb74565c9d36cfc7d8e" ],
+    "activities": [ "59fa0b0d00255c54e3d3941c", "59fa0b0d00255c54e3d3941d", "59fa0b0d00255c54e3d3941e" ],
     "maps": [ "59f61d826103fadf1e15d8b7" ]
   }
 ]
