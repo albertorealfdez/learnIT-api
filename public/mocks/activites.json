@@ -1,27 +1,27 @@
 [
   {
-    "key": "A1", "title": "Select the correct word to complete the sentence", "description": "I __ student",
+    "key": "A1", "title": "Select the correct word to complete the sentence", "abstract": "I __ student",
     "course_id": "59e39fb74565c9d36cfc7d8e", "competences": [ "59f63b1a6103fadf1e15d8bb" ],
-    "choices": [ "are", "is", "am" ]
+    "choices": [ "are", "is", "am" ], "difficulty": "1"
   },
   {
-    "key": "A2", "title": "Select the correct word to complete the sentence", "description": "You __ my friends",
+    "key": "A2", "title": "Select the correct word to complete the sentence", "abstract": "You __ my friends",
     "course_id": "59e39fb74565c9d36cfc7d8e", "competences": [ "59f63b1a6103fadf1e15d8bb" ],
-    "choices": [ "are", "is", "am" ]
+    "choices": [ "are", "is", "am" ], "difficulty": "2"
   },
   {
-    "key": "A3", "title": "Select the correct word to complete the sentence", "description": "She __ my mother",
+    "key": "A3", "title": "Select the correct word to complete the sentence", "abstract": "She __ my mother",
     "course_id": "59e39fb74565c9d36cfc7d8e", "competences": [ "59f63b1a6103fadf1e15d8bb" ],
-    "choices": [ "are", "is", "am" ]
+    "choices": [ "are", "is", "am" ], "difficulty": "1"
   },
   {
-    "key": "A4", "title": "Select the correct word to complete the sentence", "description": "He and she __ walking",
+    "key": "A4", "title": "Select the correct word to complete the sentence", "abstract": "He and she __ walking",
     "course_id": "59e39fb74565c9d36cfc7d8e", "competences": [ "59f63b1a6103fadf1e15d8bb", "59f63b1a6103fadf1e15d8bc" ],
-    "choices": [ "are", "is", "am" ]
+    "choices": [ "are", "is", "am" ], "difficulty": "1"
   },
   {
-    "key": "A5", "title": "Select the correct word to complete the sentence", "description": "My father is __ TV",
+    "key": "A5", "title": "Select the correct word to complete the sentence", "abstract": "My father is __ TV",
     "course_id": "59e39fb74565c9d36cfc7d8e", "competences": [ "59f63b1a6103fadf1e15d8bb", "59f63b1a6103fadf1e15d8bc" ],
-    "choices": [ "watch", "watching", "on" ]
+    "choices": [ "watch", "watching", "on" ], "difficulty": "1"
   }
 ]

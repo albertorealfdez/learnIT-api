@@ -11,7 +11,7 @@ var controller = {
 };
 
 function create(req, res) {
-  var competence = new Activity(req.body.key, req.body.title, req.body.description, req.body.competences);
+  var competence = new Activity(req.body.key, req.body.title, req.body.abstract, req.body.competences, req.body.difficulty);
   var db = req.db;
 
   db.collection('activities').insert(competence, (err, result) => {
@@ -24,7 +24,7 @@ function create(req, res) {
 }
 
 function update(req, res) {
-  var competence = new Activity(req.body.key, req.body.title, req.body.description, req.body.competences);
+  var competence = new Activity(req.body.key, req.body.title, req.body.abstract, req.body.competences, req.body.difficulty);
   var db = req.db;
   var details = { _id: new ObjectID(req.params.id) };
 

@@ -1,8 +1,9 @@
 export default class Activity {
-  constructor(key, title, descirption, competences) {
+  constructor(key, title, abstract, competences, difficulty) {
     this.key = key;
     this.title = title;
-    this.descirption = descirption;
+    this.abstract = abstract;
     this.competences = competences;
+    this.difficulty = difficulty;
   }
 }
