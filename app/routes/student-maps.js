@@ -8,7 +8,7 @@ router.route('/studentmaps')
 
 router.route('/studentmaps/:id')
   .get(studentMaps.get)
-  .put(studentMaps.update)
+  .put(studentMaps.replace)
   .delete(studentMaps.remove);
 
 module.exports = router;

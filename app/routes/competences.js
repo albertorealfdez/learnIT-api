@@ -8,7 +8,7 @@ router.route('/competences')
 
 router.route('/competences/:id')
   .get(competences.get)
-  .put(competences.update)
+  .put(competences.replace)
   .delete(competences.remove);
 
 module.exports = router;

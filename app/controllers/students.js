@@ -8,7 +8,8 @@ var controller = {
   getAll: getAll,
   getStudentCourses: getStudentCourses,
   remove: remove,
-  update: update
+  update: update,
+  replace: replace
 };
 
 function create(req, res) {
@@ -25,6 +26,19 @@ function create(req, res) {
 }
 
 function update(req, res) {
+  var db = req.db;
+  var details = { _id: new ObjectID(req.params.id) };
+
+  db.collection('students').update(details, {$set: req.body}, (err, result) => {
+    if (err) {
+      res.send({error: 'An error occurred updating'});
+    } else {
+      res.json(result);
+    }
+  });
+}
+
+function replace(req, res) {
   var user = new Student(req.body.name, req.body.email, req.body.password);
   var db = req.db;
   var details = { _id: new ObjectID(req.params.id) };

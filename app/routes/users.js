@@ -8,7 +8,7 @@ router.route('/users')
 
 router.route('/users/:id')
   .get(users.get)
-  .put(users.update)
+  .put(users.replace)
   .delete(users.remove);
 
 router.route('/users/:id/courses')

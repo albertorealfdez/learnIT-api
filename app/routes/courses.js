@@ -8,7 +8,7 @@ router.route('/courses')
 
 router.route('/courses/:id')
   .get(courses.get)
-  .put(courses.update)
+  .put(courses.replace)
   .delete(courses.remove);
 
 module.exports = router;

@@ -3,6 +3,7 @@ require('dotenv').config()
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var cors = require('cors');
 
 var port = process.env.PORT || 3000;
 var dbUrl = process.env.DB_URL;
@@ -12,7 +13,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 var headers = require('./middlewares/headers');
-app.use(headers);
+//app.use(headers);
+app.use(cors());
 
 MongoClient.connect(dbUrl, (err, database) => {
   if (err) {

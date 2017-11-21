@@ -8,7 +8,7 @@ var controller = {
   getAll: getAll,
   getUserCourses: getUserCourses,
   remove: remove,
-  update: update
+  replace: replace
 };
 
 function create(req, res) {
@@ -24,7 +24,7 @@ function create(req, res) {
   });
 }
 
-function update(req, res) {
+function replace(req, res) {
   var user = new User(req.body.name, req.body.email, req.body.password);
   var db = req.db;
   var details = { _id: new ObjectID(req.params.id) };

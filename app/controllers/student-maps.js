@@ -7,7 +7,7 @@ var controller = {
   get: get,
   getAll: getAll,
   remove: remove,
-  update: update
+  replace: replace
 };
 
 function create(req, res) {
@@ -23,7 +23,7 @@ function create(req, res) {
   });
 }
 
-function update(req, res) {
+function replace(req, res) {
   var course = new StudentMap(req.body.course_id, req.body.competences);
   var db = req.db;
   var details = { _id: new ObjectID(req.params.id) };

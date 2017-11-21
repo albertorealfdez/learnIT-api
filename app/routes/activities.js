@@ -8,7 +8,7 @@ router.route('/activities')
 
 router.route('/activities/:id')
   .get(activities.get)
-  .put(activities.update)
+  .put(activities.replace)
   .delete(activities.remove);
 
 module.exports = router;
