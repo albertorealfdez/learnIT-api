@@ -11,7 +11,7 @@ var controller = {
 };
 
 function create(req, res) {
-  var course = new StudentMap(req.body.course_id, req.body.competences);
+  var course = new StudentMap(req.body.course_id, req.body.competences, req.body.connections);
   var db = req.db;
 
   db.collection('studentmaps').insert(course, (err, result) => {
@@ -24,7 +24,7 @@ function create(req, res) {
 }
 
 function replace(req, res) {
-  var course = new StudentMap(req.body.course_id, req.body.competences);
+  var course = new StudentMap(req.body.course_id, req.body.competences, req.body.connections);
   var db = req.db;
   var details = { _id: new ObjectID(req.params.id) };
 
