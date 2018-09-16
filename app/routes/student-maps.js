@@ -1,6 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var studentMaps = require('../controllers/student-maps');
+import express from 'express';
+
+import studentMaps from '../controllers/student-maps';
+
+const router = express.Router();
 
 router.route('/studentmaps')
   .get(studentMaps.getAll)

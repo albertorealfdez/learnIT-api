@@ -1,6 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var competences = require('../controllers/competences');
+import express from 'express';
+
+import competences from '../controllers/competences';
+
+const router = express.Router();
 
 router.route('/competences')
   .get(competences.getAll)

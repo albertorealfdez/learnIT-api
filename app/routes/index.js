@@ -1,12 +1,14 @@
-var express = require('express');
-var router = express.Router();
-var users = require('./users');
-var students = require('./students');
-var studentMaps = require('./student-maps');
-var courses = require('./courses');
-var competences = require('./competences');
-var studentCompetences = require('./student-competences');
-var activities = require('./activities');
+import express from 'express';
+
+import users from './users';
+import students from './students';
+import studentMaps from './student-maps';
+import courses from './courses';
+import competences from './competences';
+import studentCompetences from './student-competences';
+import activities from './activities';
+
+const router = express.Router();
 
 router.get('/', (req, res) => {
   res.status(200).json({ message: 'Connected!' });

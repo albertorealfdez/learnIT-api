@@ -1,19 +1,19 @@
 require('babel-register');  
-require('dotenv').config()
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var cors = require('cors');
+require('dotenv').config();
+
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import MongoClient from 'mongodb';
+
+let app = express();
 
 var port = process.env.PORT || 3000;
 var dbUrl = process.env.DB_URL_DEV;
 
-var MongoClient = require('mongodb').MongoClient;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var headers = require('./middlewares/headers');
-//app.use(headers);
 app.use(cors());
 
 MongoClient.connect(dbUrl, (err, database) => {

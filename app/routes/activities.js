@@ -1,6 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var activities = require('../controllers/activities');
+import express from 'express';
+
+import activities from '../controllers/activities';
+
+const router = express.Router();
 
 router.route('/activities')
   .get(activities.getAll)

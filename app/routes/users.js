@@ -1,6 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var users = require('../controllers/users');
+import express from 'express';
+
+import users from '../controllers/users';
+
+const router = express.Router();
 
 router.route('/users')
   .get(users.getAll)
