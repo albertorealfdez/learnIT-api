@@ -1,8 +1,8 @@
+import mongo from 'mongodb';
+
 import Course from '../models/course';
 
-var ObjectID = require('mongodb').ObjectID
-
-var controller = {
+let controller = {
   create: create,
   get: get,
   getAll: getAll,
@@ -11,8 +11,8 @@ var controller = {
 };
 
 function create(req, res) {
-  var course = new Course(req.body.key, req.body.name, req.body.year);
-  var db = req.db;
+  let course = new Course(req.body.key, req.body.name, req.body.year);
+  let db = req.db;
 
   db.collection('courses').insert(course, (err, result) => {
     if (err) {
@@ -24,9 +24,9 @@ function create(req, res) {
 }
 
 function replace(req, res) {
-  var course = new Course(req.body.key, req.body.name, req.body.year);
-  var db = req.db;
-  var details = { _id: new ObjectID(req.params.id) };
+  let course = new Course(req.body.key, req.body.name, req.body.year);
+  let db = req.db;
+  let details = { _id: new mongo.ObjectID(req.params.id) };
 
   db.collection('courses').update(details, course, (err, result) => {
     if (err) {
@@ -38,8 +38,8 @@ function replace(req, res) {
 }
 
 function get(req, res) {
-  var db = req.db;
-  var details = { _id: new ObjectID(req.params.id) };
+  let db = req.db;
+  let details = { _id: new mongo.ObjectID(req.params.id) };
 
   db.collection('courses').findOne(details, (err, course) => {
     if (err) {
@@ -51,7 +51,7 @@ function get(req, res) {
 }
 
 function getAll(req, res) {
-  var db = req.db;
+  let db = req.db;
 
   if (req.query.key) {
     return getByKey(req, res);
@@ -67,9 +67,9 @@ function getAll(req, res) {
 }
 
 function getByKey(req, res) {
-  var db = req.db;
+  let db = req.db;
 
-  var details = { key: req.query.key };
+  let details = { key: req.query.key };
 
   db.collection('courses').findOne(details, (err, course) => {
     if (err) {
@@ -81,8 +81,8 @@ function getByKey(req, res) {
 } 
 
 function remove(req, res) {
-  var db = req.db;
-  var details = { _id: new ObjectID(req.params.id) };
+  let db = req.db;
+  let details = { _id: new mongo.ObjectID(req.params.id) };
 
   db.collection('courses').remove(details, (err, result) => {
     if (err) {

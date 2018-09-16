@@ -1,6 +1,6 @@
-import StudentCompetence from '../models/student-competence';
+import mongo from 'mongodb';
 
-var ObjectID = require('mongodb').ObjectID
+import StudentCompetence from '../models/student-competence';
 
 var controller = {
   create: create,
@@ -26,7 +26,7 @@ function create(req, res) {
 function replace(req, res) {
   var competence = new StudentCompetence(req.body.key, req.body.title, req.body.minThreshold, req.body.maxThreshold, req.body.force, req.body.completed, req.body.locked);
   var db = req.db;
-  var details = { _id: new ObjectID(req.params.id) };
+  var details = { _id: new mongo.ObjectID(req.params.id) };
 
   db.collection('studentcompetences').update(details, competence, (err, result) => {
     if (err) {
@@ -39,7 +39,7 @@ function replace(req, res) {
 
 function get(req, res) {
   var db = req.db;
-  var details = { _id: new ObjectID(req.params.id) };
+  var details = { _id: new mongo.ObjectID(req.params.id) };
 
   db.collection('studentcompetences').findOne(details, (err, competence) => {
     if (err) {
@@ -52,7 +52,7 @@ function get(req, res) {
 
 function getByCourse(req, res) {
   var db = req.db;
-  var details = { course_id: new ObjectID(req.query.course) };
+  var details = { course_id: new mongo.ObjectID(req.query.course) };
   
   db.collection('studentcompetences').find(details).toArray((err, competence) => {
     if (err) {
@@ -80,7 +80,7 @@ function getAll(req, res) {
 
 function remove(req, res) {
   var db = req.db;
-  var details = { _id: new ObjectID(req.params.id) };
+  var details = { _id: new mongo.ObjectID(req.params.id) };
 
   db.collection('studentcompetences').remove(details, (err, result) => {
     if (err) {

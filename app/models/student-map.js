@@ -1,7 +1,9 @@
-export class StudentMap {
+class StudentMap {
   constructor(courseId, competences, connections) {
     this.courseId = courseId;
     this.competences = competences;
     this.connections = connections;
   }
 }
+
+export default StudentMap;

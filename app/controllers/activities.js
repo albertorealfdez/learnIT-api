@@ -1,6 +1,6 @@
-import Activity from '../models/competence';
+import mongo from 'mongodb';
 
-var ObjectID = require('mongodb').ObjectID
+import Activity from '../models/competence';
 
 var controller = {
   create: create,
@@ -26,7 +26,7 @@ function create(req, res) {
 function replace(req, res) {
   var competence = new Activity(req.body.key, req.body.title, req.body.abstract, req.body.competences, req.body.difficulty);
   var db = req.db;
-  var details = { _id: new ObjectID(req.params.id) };
+  var details = { _id: new mongo.ObjectID(req.params.id) };
 
   db.collection('activities').update(details, competence, (err, result) => {
     if (err) {
@@ -39,7 +39,7 @@ function replace(req, res) {
 
 function get(req, res) {
   var db = req.db;
-  var details = { _id: new ObjectID(req.params.id) };
+  var details = { _id: new mongo.ObjectID(req.params.id) };
 
   db.collection('activities').findOne(details, (err, competence) => {
     if (err) {
@@ -81,7 +81,7 @@ function getAll(req, res) {
 
 function remove(req, res) {
   var db = req.db;
-  var details = { _id: new ObjectID(req.params.id) };
+  var details = { _id: new mongo.ObjectID(req.params.id) };
 
   db.collection('activities').remove(details, (err, result) => {
     if (err) {

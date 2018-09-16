@@ -1,6 +1,6 @@
-import StudentMap from '../models/student-map';
+import mongo from 'mongodb';
 
-var ObjectID = require('mongodb').ObjectID
+import StudentMap from '../models/student-map';
 
 var controller = {
   create: create,
@@ -26,7 +26,7 @@ function create(req, res) {
 function replace(req, res) {
   var course = new StudentMap(req.body.course_id, req.body.competences, req.body.connections);
   var db = req.db;
-  var details = { _id: new ObjectID(req.params.id) };
+  var details = { _id: new mongo.ObjectID(req.params.id) };
 
   db.collection('studentmaps').update(details, course, (err, result) => {
     if (err) {
@@ -39,7 +39,7 @@ function replace(req, res) {
 
 function get(req, res) {
   var db = req.db;
-  var details = { _id: new ObjectID(req.params.id) };
+  var details = { _id: new mongo.ObjectID(req.params.id) };
 
   db.collection('studentmaps').findOne(details, (err, course) => {
     if (err) {
@@ -64,7 +64,7 @@ function getAll(req, res) {
 
 function remove(req, res) {
   var db = req.db;
-  var details = { _id: new ObjectID(req.params.id) };
+  var details = { _id: new mongo.ObjectID(req.params.id) };
 
   db.collection('studentmaps').remove(details, (err, result) => {
     if (err) {

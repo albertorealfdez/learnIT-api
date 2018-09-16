@@ -1,6 +1,6 @@
-import User from '../models/user';
+import mongo from 'mongodb';
 
-var ObjectID = require('mongodb').ObjectID
+import User from '../models/user';
 
 var controller = {
   create: create,
@@ -27,7 +27,7 @@ function create(req, res) {
 function replace(req, res) {
   var user = new User(req.body.name, req.body.email, req.body.password);
   var db = req.db;
-  var details = { _id: new ObjectID(req.params.id) };
+  var details = { _id: new mongo.ObjectID(req.params.id) };
 
   db.collection('users').update(details, user, (err, result) => {
     if (err) {
@@ -40,7 +40,7 @@ function replace(req, res) {
 
 function get(req, res) {
   var db = req.db;
-  var details = { _id: new ObjectID(req.params.id) };
+  var details = { _id: new mongo.ObjectID(req.params.id) };
 
   db.collection('users').findOne(details, (err, user) => {
     if (err) {
@@ -81,7 +81,7 @@ function getAll(req, res) {
 
 function getUserCourses(req, res) {
   var db = req.db;
-  var details = { _id: new ObjectID(req.params.id) };
+  var details = { _id: new mongo.ObjectID(req.params.id) };
 
   db.collection('users').findOne(details, (err, user) => {
     if (err) {
@@ -94,7 +94,7 @@ function getUserCourses(req, res) {
 
 function remove(req, res) {
   var db = req.db;
-  var details = { _id: new ObjectID(req.params.id) };
+  var details = { _id: new mongo.ObjectID(req.params.id) };
 
   db.collection('users').remove(details, (err, result) => {
     if (err) {

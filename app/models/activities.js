@@ -1,4 +1,4 @@
-export default class Activity {
+class Activity {
   constructor(key, title, abstract, competences, difficulty) {
     this.key = key;
     this.title = title;
@@ -7,3 +7,5 @@ export default class Activity {
     this.difficulty = difficulty;
   }
 }
+
+export default Activity;
