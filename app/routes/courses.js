@@ -13,4 +13,4 @@ router.route('/courses/:id')
   .put(courses.replace)
   .delete(courses.remove);
 
-module.exports = router;
+export default router;;

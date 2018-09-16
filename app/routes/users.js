@@ -16,4 +16,4 @@ router.route('/users/:id')
 router.route('/users/:id/courses')
   .get(users.getUserCourses)
 
-module.exports = router;
+export default router;

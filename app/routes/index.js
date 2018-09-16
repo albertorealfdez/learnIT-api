@@ -22,4 +22,4 @@ router.use('/api', competences);
 router.use('/api', studentCompetences);
 router.use('/api', activities);
 
-module.exports = router;
+export default router;;

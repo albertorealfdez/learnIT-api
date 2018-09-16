@@ -17,4 +17,4 @@ router.route('/students/:id')
 router.route('/students/:id/courses')
   .get(students.getStudentCourses)
 
-module.exports = router;
+  export default router;

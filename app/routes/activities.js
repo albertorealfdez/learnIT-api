@@ -13,4 +13,4 @@ router.route('/activities/:id')
   .put(activities.replace)
   .delete(activities.remove);
 
-module.exports = router;
+export default router;;

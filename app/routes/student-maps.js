@@ -13,4 +13,4 @@ router.route('/studentmaps/:id')
   .put(studentMaps.replace)
   .delete(studentMaps.remove);
 
-module.exports = router;
+  export default router;

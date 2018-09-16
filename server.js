@@ -1,13 +1,13 @@
-require('babel-register');  
-require('dotenv').config();
-
+import dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import MongoClient from 'mongodb';
+import routes from './app/routes';
 
 let app = express();
 
+dotenv.config();
 var port = process.env.PORT || 3000;
 var dbUrl = process.env.DB_URL_DEV;
 
@@ -25,8 +25,6 @@ MongoClient.connect(dbUrl, (err, database) => {
     req.db = database;
     next();
   });
-
-  var routes = require('./app/routes');
   
   app.use('/', routes);
 

@@ -13,4 +13,4 @@ router.route('/studentcompetences/:id')
   .put(studentCompetences.replace)
   .delete(studentCompetences.remove);
 
-module.exports = router;
+export default router;;
